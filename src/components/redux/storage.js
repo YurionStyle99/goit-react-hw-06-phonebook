@@ -26,12 +26,14 @@ export const saveContactsToLocalStorage = (contacts) => {
 
 export const loadContactsFromLocalStorage = () => {
   const contactIds = JSON.parse(window.localStorage.getItem('contactIds')) || [];
-  return contactIds.map((id) => ({
+  const contacts = contactIds.map((id) => ({
     id,
     name: '',
     number: '',
   }));
+  return contacts.filter((contact) => contact.name !== '' && contact.number !== '');
 };
+
 const middleware = [...getDefaultMiddleware({ serializableCheck: false })];
 
 export const store = configureStore({

@@ -3,15 +3,14 @@ import { nanoid } from 'nanoid/non-secure';
 
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: [
-  ],
+  initialState: [],
   reducers: {
     addContact: {
       reducer(state, action) {
         state.push(action.payload);
       },
-      prepare(name, number) {
-        return { payload: { id: nanoid(), name, number } };
+      prepare(contact) {
+        return { payload: { id: nanoid(), ...contact } };
       },
     },
     deleteContact(state, action) {
@@ -19,6 +18,7 @@ const contactsSlice = createSlice({
     },
   },
 });
+
 
 export const { addContact, deleteContact } = contactsSlice.actions;
 export default contactsSlice.reducer;

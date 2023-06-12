@@ -4,7 +4,7 @@ import styles from "../styles.module.css";
 import { useDispatch } from 'react-redux';
 import { addContact } from '../redux/contactSlice';
 
-const ContactForm = () => {
+const ContactForm = ({onAddContact}) => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -17,9 +17,10 @@ const ContactForm = () => {
     setNumber(event.target.value);
   };
 
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addContact(name, number));
+    onAddContact( name, number ); // Передайте объект контакта
     setName('');
     setNumber('');
   };

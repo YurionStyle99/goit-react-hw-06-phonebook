@@ -28,8 +28,3 @@ const Filter = () => {
 
 
 export default Filter;
-
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChangeFilter: PropTypes.func.isRequired,
-};
