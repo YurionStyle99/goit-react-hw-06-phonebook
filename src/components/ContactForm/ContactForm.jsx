@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PropTypes from 'prop-types';
 import styles from "../styles.module.css";
 
-
 const ContactForm = ({onAddContact}) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -18,7 +17,7 @@ const ContactForm = ({onAddContact}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onAddContact( name, number ); 
+    onAddContact( name, number );
     setName('');
     setNumber('');
   };
